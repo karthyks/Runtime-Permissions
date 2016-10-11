@@ -8,9 +8,9 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.github.karthyks.permissionchecker.R;
-import com.github.karthyks.permissionchecker.permission.Permission;
-import com.github.karthyks.permissionchecker.permission.PermissionActivity;
-import com.github.karthyks.permissionchecker.permission.PermissionUtil;
+import com.github.karthyks.runtimepermissions.Permission;
+import com.github.karthyks.runtimepermissions.PermissionActivity;
+import com.github.karthyks.runtimepermissions.PermissionUtil;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
   public static final int REQUEST_CODE = 111;

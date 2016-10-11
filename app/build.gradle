@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "com.github.karthyks.permissionchecker"
-        minSdkVersion 9
+        minSdkVersion 10
         targetSdkVersion 24
         versionCode 1
         versionName "1.0"
@@ -24,4 +24,5 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:24.2.1'
     compile 'com.android.support:design:24.2.1'
+    compile 'com.github.karthyks:runtime-permissions:1.0'
 }
