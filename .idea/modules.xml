@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/PermissionChecker.iml" filepath="$PROJECT_DIR$/PermissionChecker.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/runtime-permissions/runtime-permissions.iml" filepath="$PROJECT_DIR$/runtime-permissions/runtime-permissions.iml" />
       <module fileurl="file://$PROJECT_DIR$/runtime-permissions/runtimepermissions.iml" filepath="$PROJECT_DIR$/runtime-permissions/runtimepermissions.iml" />
     </modules>
   </component>
