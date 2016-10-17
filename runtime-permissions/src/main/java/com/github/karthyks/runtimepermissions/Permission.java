@@ -5,11 +5,11 @@ import android.support.v7.app.AppCompatActivity;
 
 public class Permission {
 
-  public static final int REQUEST_CAMERA = 4900;
-  public static final int REQUEST_CONTACTS = 4901;
-  public static final int REQUEST_LOCATION = 4902;
-  public static final int REQUEST_CALENDAR = 4903;
-  public static final int REQUEST_MICROPHONE = 4904;
+  public static final int REQUEST_CAMERA = 200;
+  public static final int REQUEST_CONTACTS = 201;
+  public static final int REQUEST_LOCATION = 202;
+  public static final int REQUEST_CALENDAR = 203;
+  public static final int REQUEST_MICROPHONE = 204;
 
   private static String[] PERMISSIONS_CONTACT = {Manifest.permission.READ_CONTACTS,
       Manifest.permission.WRITE_CONTACTS};
