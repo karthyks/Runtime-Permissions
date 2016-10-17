@@ -1,5 +1,5 @@
 [![Wercker](https://api.travis-ci.org/karthyks/Runtime-Permissions.svg?branch=master)](https://travis-ci.org/karthyks/Runtime-Permissions) 
-[![Wercker](https://img.shields.io/badge/jcenter-v1.0-yellow.svg)](https://bintray.com/karthik-logs/karthyks/Runtime-Permissions/)
+[![Wercker](https://img.shields.io/badge/jcenter-v1.1-yellow.svg)](https://bintray.com/karthik-logs/karthyks/Runtime-Permissions/1.1)
 
 # Runtime-Permissions
 
