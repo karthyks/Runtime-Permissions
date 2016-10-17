@@ -1,32 +1,4 @@
 apply plugin: 'com.android.library'
-
-
-ext {
-    bintrayRepo = 'karthyks'
-    bintrayName = 'Runtime-Permissions'
-
-    publishedGroupId = 'com.github.karthyks'
-    libraryName = 'Runtime-Permissions'
-    artifact = 'runtime-permissions'
-
-    libraryDescription = 'A simplified integration of android\'s runtime permissions'
-
-    siteUrl = 'https://www.github.com/karthyks'
-    gitUrl = 'https://github.com/karthyks/Runtime-Permissions/'
-    githubRepository= 'https://github.com/karthyks/Runtime-Permissions.git'
-
-    libraryVersion = '1.1'
-
-    developerId = 'karthik-logs'
-    developerName = 'karthik periasami'
-    developerEmail = 'mail2karthyk@gmail.com'
-
-    licenseName = 'The Apache Software License, Version 2.0'
-    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-    allLicenses = ["Apache-2.0"]
-}
-
-
 android {
     compileSdkVersion 24
     buildToolsVersion "24.0.1"
@@ -54,6 +26,3 @@ dependencies {
     compile 'com.android.support:appcompat-v7:24.2.1'
     compile 'com.android.support:design:24.2.1'
 }
-
-apply from: 'https://raw.githubusercontent.com/nisrulz/JCenter/master/installv1.gradle'
-apply from: 'https://raw.githubusercontent.com/nisrulz/JCenter/master/bintrayv1.gradle'
