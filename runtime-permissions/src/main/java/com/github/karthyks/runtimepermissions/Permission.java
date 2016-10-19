@@ -1,6 +1,7 @@
 package com.github.karthyks.runtimepermissions;
 
 import android.Manifest;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 
 public class Permission {
@@ -24,24 +25,39 @@ public class Permission {
   private String[] permissions;
   private AppCompatActivity requestedActivity;
   private String rationale;
+  private Fragment requestedFragment;
 
 
   private Permission(PermissionBuilder builder) {
     this.permissionCode = builder.permissionCode;
     this.permissions = builder.permissions;
-    this.requestedActivity = builder.activity;
+    if (builder.activity != null) {
+      this.requestedActivity = builder.activity;
+    }
+    if (builder.fragment != null) {
+      this.requestedFragment = builder.fragment;
+    }
     this.rationale = builder.rationale;
   }
 
   public void requestPermission(int requestCode) {
-    requestedActivity.startActivityForResult(PermissionActivity.getInstance(requestedActivity,
-        this.permissionCode, permissions, rationale), requestCode);
+    if (requestedActivity != null) {
+      requestedActivity.startActivityForResult(PermissionActivity.getInstance(requestedActivity,
+          this.permissionCode, permissions, rationale), requestCode);
+    } else if (requestedFragment != null) {
+      requestedFragment.startActivityForResult(PermissionActivity.getInstance(
+          requestedFragment.getContext(), this.permissionCode, permissions, rationale),
+          requestCode);
+    } else {
+      throw new RuntimeException("Null Activity or Fragment");
+    }
   }
 
   public static class PermissionBuilder {
     private int permissionCode;
     private String[] permissions;
     private AppCompatActivity activity;
+    private Fragment fragment;
     private String rationale;
 
     public PermissionBuilder(int permissionCode) {
@@ -49,8 +65,13 @@ public class Permission {
       this.permissions = getPermissions(permissionCode);
     }
 
-    public PermissionBuilder using(AppCompatActivity activity) {
+    public PermissionBuilder usingActivity(AppCompatActivity activity) {
       this.activity = activity;
+      return this;
+    }
+
+    public PermissionBuilder usingFragment(Fragment fragment) {
+      this.fragment = fragment;
       return this;
     }
 

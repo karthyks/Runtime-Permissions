@@ -28,14 +28,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
   private void checkPermission() {
     Permission permission = new Permission.PermissionBuilder(Permission.REQUEST_LOCATION)
-        .using(this).withRationale("This app requires your location for no reason!")
+        .usingActivity(this).withRationale("This app requires your location for no reason!")
         .build();
     permission.requestPermission(REQUEST_CODE);
   }
 
   private void checkCameraPermission() {
     Permission permission = new Permission.PermissionBuilder(Permission.REQUEST_CAMERA)
-        .using(this).withRationale("This app uses your camera for no reason!").build();
+        .usingActivity(this).withRationale("This app uses your camera for no reason!").build();
     permission.requestPermission(REQUEST_CODE);
   }
 
