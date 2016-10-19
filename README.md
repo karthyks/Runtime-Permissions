@@ -1,5 +1,5 @@
 [![Wercker](https://api.travis-ci.org/karthyks/Runtime-Permissions.svg?branch=master)](https://travis-ci.org/karthyks/Runtime-Permissions) 
-[![Wercker](https://img.shields.io/badge/jcenter-v1.1-yellow.svg)](https://bintray.com/karthik-logs/karthyks/Runtime-Permissions/1.1)
+[![Wercker](https://img.shields.io/badge/jcenter-v1.3-yellow.svg)](https://bintray.com/karthik-logs/karthyks/Runtime-Permissions/1.3)
 [![Wercker](https://img.shields.io/badge/Android--Arsenal-Runtime--Permissions-brightgreen.svg)](https://android-arsenal.com/details/1/4522)
 
 # Runtime-Permissions
