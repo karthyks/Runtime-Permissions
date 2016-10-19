@@ -11,7 +11,16 @@ To ask the permission from the user, use the following code.
 
 ```java
 Permission permission = new Permission.PermissionBuilder(Permission.REQUEST_LOCATION)
-        .using(this).withRationale("Some rationale message!")
+        .usingActivity(AppCompatActivity).withRationale("Some rationale message!")
+        .build();
+permission.requestPermission(REQUEST_CODE);
+```
+
+or
+
+```java
+Permission permission = new Permission.PermissionBuilder(Permission.REQUEST_LOCATION)
+        .usingFragment(Fragment).withRationale("Some rationale message!")
         .build();
 permission.requestPermission(REQUEST_CODE);
 ```
