@@ -47,8 +47,6 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
     }
 }
 ```
-
-
-
-
-
+#Note
+If it throws "Permission Denied" even after allowing it, check whether all the permission is added in the manifest for the permission group.
+For example, for location permission add both COARSE and FINE_LOCATION permission in the manifest.
