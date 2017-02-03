@@ -1,5 +1,5 @@
 [![Wercker](https://api.travis-ci.org/karthyks/Runtime-Permissions.svg?branch=master)](https://travis-ci.org/karthyks/Runtime-Permissions) 
-[![Wercker](https://img.shields.io/badge/jcenter-v1.4-yellow.svg)](https://bintray.com/karthik-logs/karthyks/Runtime-Permissions/1.4)
+[![Wercker](https://img.shields.io/badge/jcenter-v1.6-green.svg)](https://bintray.com/karthik-logs/karthyks/Runtime-Permissions/1.6)
 [![Wercker](https://img.shields.io/badge/Android--Arsenal-Runtime--Permissions-brightgreen.svg)](https://android-arsenal.com/details/1/4522)
 
 # Runtime-Permissions
@@ -50,3 +50,67 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 #Note
 If it throws "Permission Denied" even after allowing it, check whether all the permission is added in the manifest for the permission group.
 For example, for location permission add both COARSE and FINE_LOCATION permission in the manifest.
+
+For ease of use, the permissions to be added in the manifest, for the particular dangerous permission groups are mentioned below.
+
+```
+    <!--
+     PERMISSION_GROUP PHONE
+    -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.READ_CALL_LOG"/>
+    <uses-permission android:name="android.permission.WRITE_CALL_LOG"/>
+    <uses-permission android:name="android.permission.USE_SIP"/>
+    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS"/>
+
+    <!--
+     PERMISSION_GROUP CONTACTS
+    -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.WRITE_CONTACTS"/>
+
+    <!--
+     PERMISSION_GROUP STORAGE
+    -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
+    <!--
+     PERMISSION_GROUP SENSORS
+    -->
+    <uses-permission android:name="android.permission.BODY_SENSORS"/>
+    <uses-permission android:name="android.permission.USE_FINGERPRINT"/>
+
+    <!--
+     PERMISSION_GROUP AUDIO
+    -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+
+    <!--
+     PERMISSION_GROUP CALENDAR
+    -->
+    <uses-permission android:name="android.permission.READ_CALENDAR"/>
+    <uses-permission android:name="android.permission.WRITE_CALENDAR"/>
+
+    <!--
+     PERMISSION_GROUP CAMERA
+    -->
+    <uses-permission android:name="android.permission.CAMERA"/>
+
+    <!--
+     PERMISSION_GROUP LOCATION
+    -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+
+    <!--
+     PERMISSION_GROUP SMS
+    -->
+    <uses-permission android:name="android.permission.READ_SMS"/>
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.RECEIVE_WAP_PUSH"/>
+    <uses-permission android:name="android.permission.RECEIVE_MMS"/>
+```
