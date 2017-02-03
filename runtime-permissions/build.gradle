@@ -1,28 +1,28 @@
 apply plugin: 'com.android.library'
 
-ext {
-    bintrayRepo = 'karthyks'
-    bintrayName = 'Runtime-Permissions'
-    publishedGroupId = 'com.github.karthyks'
-    libraryName = 'Runtime-Permissions'
-    artifact = 'runtime-permissions'
-
-    libraryDescription = 'A simplified integration of android\'s runtime permissions'
-
-    siteUrl = 'https://www.github.com/karthyks'
-    gitUrl = 'https://github.com/karthyks/Runtime-Permissions/'
-    githubRepository = 'https://github.com/karthyks/Runtime-Permissions.git'
-
-    libraryVersion = '1.6'
-
-    developerId = 'karthik-logs'
-    developerName = 'karthik periasami'
-    developerEmail = 'mail2karthyk@gmail.com'
-
-    licenseName = 'The Apache Software License, Version 2.0'
-    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-    allLicenses = ["Apache-2.0"]
-}
+//ext {
+//    bintrayRepo = 'karthyks'
+//    bintrayName = 'Runtime-Permissions'
+//    publishedGroupId = 'com.github.karthyks'
+//    libraryName = 'Runtime-Permissions'
+//    artifact = 'runtime-permissions'
+//
+//    libraryDescription = 'A simplified integration of android\'s runtime permissions'
+//
+//    siteUrl = 'https://www.github.com/karthyks'
+//    gitUrl = 'https://github.com/karthyks/Runtime-Permissions/'
+//    githubRepository = 'https://github.com/karthyks/Runtime-Permissions.git'
+//
+//    libraryVersion = '1.6'
+//
+//    developerId = 'karthik-logs'
+//    developerName = 'karthik periasami'
+//    developerEmail = 'mail2karthyk@gmail.com'
+//
+//    licenseName = 'The Apache Software License, Version 2.0'
+//    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+//    allLicenses = ["Apache-2.0"]
+//}
 
 android {
     compileSdkVersion 25
@@ -54,5 +54,5 @@ dependencies {
     provided 'com.android.support:design:25.1.0'
 }
 
-apply from: 'https://raw.githubusercontent.com/nisrulz/JCenter/master/installv1.gradle'
-apply from: 'https://raw.githubusercontent.com/nisrulz/JCenter/master/bintrayv1.gradle'
+//apply from: 'https://raw.githubusercontent.com/nisrulz/JCenter/master/installv1.gradle'
+//apply from: 'https://raw.githubusercontent.com/nisrulz/JCenter/master/bintrayv1.gradle'
