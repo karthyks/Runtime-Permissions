@@ -13,6 +13,10 @@ public class SharedPrefUtil {
   public static final String CALENDAR = "calendar";
   public static final String CAMERA = "camera";
   public static final String MICROPHONE = "microphone";
+  public static final String PHONE = "phone";
+  public static final String SENSORS = "sensors";
+  public static final String SMS = "sms";
+  public static final String STORAGE = "storage";
 
   public static void putInSharedPref(Context context, int permissionCode, boolean isDenied) {
     SharedPreferences.Editor sharedPref = context.getSharedPreferences(PREF_FILE_NAME,
@@ -32,6 +36,18 @@ public class SharedPrefUtil {
         break;
       case Permission.REQUEST_MICROPHONE:
         sharedPref.putBoolean(MICROPHONE, isDenied);
+        break;
+      case Permission.REQUEST_PHONE:
+        sharedPref.putBoolean(PHONE, isDenied);
+        break;
+      case Permission.REQUEST_SENSORS:
+        sharedPref.putBoolean(SENSORS, isDenied);
+        break;
+      case Permission.REQUEST_SMS:
+        sharedPref.putBoolean(SMS, isDenied);
+        break;
+      case Permission.REQUEST_STORAGE:
+        sharedPref.putBoolean(STORAGE, isDenied);
         break;
       default:
     }
@@ -53,6 +69,14 @@ public class SharedPrefUtil {
         return sharedPreferences.getBoolean(LOCATION, false);
       case Permission.REQUEST_MICROPHONE:
         return sharedPreferences.getBoolean(MICROPHONE, false);
+      case Permission.REQUEST_PHONE:
+        return sharedPreferences.getBoolean(PHONE, false);
+      case Permission.REQUEST_SENSORS:
+        return sharedPreferences.getBoolean(SENSORS, false);
+      case Permission.REQUEST_SMS:
+        return sharedPreferences.getBoolean(SMS, false);
+      case Permission.REQUEST_STORAGE:
+        return sharedPreferences.getBoolean(STORAGE, false);
       default:
         return false;
     }

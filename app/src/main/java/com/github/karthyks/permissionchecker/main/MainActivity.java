@@ -13,20 +13,41 @@ import com.github.karthyks.runtimepermissions.PermissionActivity;
 import com.github.karthyks.runtimepermissions.PermissionUtil;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-  public static final int REQUEST_CODE = 111;
+  public static final int REQUEST_CODE = 101;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
-    Button btnRequest = (Button) findViewById(R.id.btn_request);
-    btnRequest.setOnClickListener(this);
+    Button btnLocation = (Button) findViewById(R.id.btn_location);
+    btnLocation.setOnClickListener(this);
 
     Button btnCamera = (Button) findViewById(R.id.btn_camera);
     btnCamera.setOnClickListener(this);
+
+    Button btnMic = (Button) findViewById(R.id.btn_mic);
+    btnMic.setOnClickListener(this);
+
+    Button btnSms = (Button) findViewById(R.id.btn_sms);
+    btnSms.setOnClickListener(this);
+
+    Button btnPhone = (Button) findViewById(R.id.btn_phone);
+    btnPhone.setOnClickListener(this);
+
+    Button btnStorage = (Button) findViewById(R.id.btn_storage);
+    btnStorage.setOnClickListener(this);
+
+    Button btnSensors = (Button) findViewById(R.id.btn_sensors);
+    btnSensors.setOnClickListener(this);
+
+    Button btnCalendar = (Button) findViewById(R.id.btn_calendar);
+    btnCalendar.setOnClickListener(this);
+
+    Button btnContacts = (Button) findViewById(R.id.btn_contacts);
+    btnContacts.setOnClickListener(this);
   }
 
-  private void checkPermission() {
+  private void checkLocationPermission() {
     Permission permission = new Permission.PermissionBuilder(Permission.REQUEST_LOCATION)
         .usingActivity(this).withRationale("This app requires your location for no reason!")
         .build();
@@ -63,13 +84,77 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
   @Override
   public void onClick(View view) {
     switch (view.getId()) {
-      case R.id.btn_request:
-        checkPermission();
+      case R.id.btn_location:
+        checkLocationPermission();
         break;
       case R.id.btn_camera:
         checkCameraPermission();
         break;
+      case R.id.btn_contacts:
+        checkContactsPermission();
+        break;
+      case R.id.btn_calendar:
+        checkCalendarPermission();
+        break;
+      case R.id.btn_mic:
+        checkMicPermission();
+        break;
+      case R.id.btn_phone:
+        checkPhonePermission();
+        break;
+      case R.id.btn_sensors:
+        checkSensorPermission();
+        break;
+      case R.id.btn_sms:
+        checkSmsPermission();
+        break;
+      case R.id.btn_storage:
+        checkStoragePermission();
+        break;
       default:
     }
+  }
+
+  private void checkStoragePermission() {
+    Permission permission = new Permission.PermissionBuilder(Permission.REQUEST_STORAGE)
+        .usingActivity(this).withRationale("This app uses your storage for no reason!").build();
+    permission.requestPermission(REQUEST_CODE);
+  }
+
+  private void checkSmsPermission() {
+    Permission permission = new Permission.PermissionBuilder(Permission.REQUEST_SMS)
+        .usingActivity(this).withRationale("This app uses your sms for no reason!").build();
+    permission.requestPermission(REQUEST_CODE);
+  }
+
+  private void checkSensorPermission() {
+    Permission permission = new Permission.PermissionBuilder(Permission.REQUEST_SENSORS)
+        .usingActivity(this).withRationale("This app uses your sensors for no reason!").build();
+    permission.requestPermission(REQUEST_CODE);
+  }
+
+  private void checkPhonePermission() {
+    Permission permission = new Permission.PermissionBuilder(Permission.REQUEST_PHONE)
+        .usingActivity(this).withRationale("This app uses your call facility for no reason!")
+        .build();
+    permission.requestPermission(REQUEST_CODE);
+  }
+
+  private void checkMicPermission() {
+    Permission permission = new Permission.PermissionBuilder(Permission.REQUEST_MICROPHONE)
+        .usingActivity(this).withRationale("This app uses your mic for no reason!").build();
+    permission.requestPermission(REQUEST_CODE);
+  }
+
+  private void checkCalendarPermission() {
+    Permission permission = new Permission.PermissionBuilder(Permission.REQUEST_CALENDAR)
+        .usingActivity(this).withRationale("This app uses your calendar for no reason!").build();
+    permission.requestPermission(REQUEST_CODE);
+  }
+
+  private void checkContactsPermission() {
+    Permission permission = new Permission.PermissionBuilder(Permission.REQUEST_CONTACTS)
+        .usingActivity(this).withRationale("This app uses your contacts for no reason!").build();
+    permission.requestPermission(REQUEST_CODE);
   }
 }

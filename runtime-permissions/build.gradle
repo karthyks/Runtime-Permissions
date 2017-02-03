@@ -1,38 +1,38 @@
 apply plugin: 'com.android.library'
 
-//ext {
-//    bintrayRepo = 'karthyks'
-//    bintrayName = 'Runtime-Permissions'
-//    publishedGroupId = 'com.github.karthyks'
-//    libraryName = 'Runtime-Permissions'
-//    artifact = 'runtime-permissions'
-//
-//    libraryDescription = 'A simplified integration of android\'s runtime permissions'
-//
-//    siteUrl = 'https://www.github.com/karthyks'
-//    gitUrl = 'https://github.com/karthyks/Runtime-Permissions/'
-//    githubRepository = 'https://github.com/karthyks/Runtime-Permissions.git'
-//
-//    libraryVersion = '1.4'
-//
-//    developerId = 'karthik-logs'
-//    developerName = 'karthik periasami'
-//    developerEmail = 'mail2karthyk@gmail.com'
-//
-//    licenseName = 'The Apache Software License, Version 2.0'
-//    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-//    allLicenses = ["Apache-2.0"]
-//}
+ext {
+    bintrayRepo = 'karthyks'
+    bintrayName = 'Runtime-Permissions'
+    publishedGroupId = 'com.github.karthyks'
+    libraryName = 'Runtime-Permissions'
+    artifact = 'runtime-permissions'
+
+    libraryDescription = 'A simplified integration of android\'s runtime permissions'
+
+    siteUrl = 'https://www.github.com/karthyks'
+    gitUrl = 'https://github.com/karthyks/Runtime-Permissions/'
+    githubRepository = 'https://github.com/karthyks/Runtime-Permissions.git'
+
+    libraryVersion = '1.6'
+
+    developerId = 'karthik-logs'
+    developerName = 'karthik periasami'
+    developerEmail = 'mail2karthyk@gmail.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
 
 android {
-    compileSdkVersion 24
-    buildToolsVersion "24.0.1"
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
 
     defaultConfig {
         minSdkVersion 9
-        targetSdkVersion 24
-        versionCode 5
-        versionName "1.4"
+        targetSdkVersion 25
+        versionCode 6
+        versionName "1.6"
     }
     buildTypes {
         release {
@@ -50,9 +50,9 @@ configurations {
 }
 
 dependencies {
-    provided 'com.android.support:appcompat-v7:24.2.1'
-    provided 'com.android.support:design:24.2.1'
+    provided 'com.android.support:appcompat-v7:25.1.0'
+    provided 'com.android.support:design:25.1.0'
 }
 
-//apply from: 'https://raw.githubusercontent.com/nisrulz/JCenter/master/installv1.gradle'
-//apply from: 'https://raw.githubusercontent.com/nisrulz/JCenter/master/bintrayv1.gradle'
+apply from: 'https://raw.githubusercontent.com/nisrulz/JCenter/master/installv1.gradle'
+apply from: 'https://raw.githubusercontent.com/nisrulz/JCenter/master/bintrayv1.gradle'
