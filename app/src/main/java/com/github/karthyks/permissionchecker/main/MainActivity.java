@@ -1,5 +1,6 @@
 package com.github.karthyks.permissionchecker.main;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -11,9 +12,12 @@ import com.github.karthyks.permissionchecker.R;
 import com.github.karthyks.runtimepermissions.Permission;
 import com.github.karthyks.runtimepermissions.PermissionActivity;
 import com.github.karthyks.runtimepermissions.PermissionUtil;
+import com.github.karthyks.runtimepermissions.googleapi.LocationSettingsActivity;
+import com.github.karthyks.runtimepermissions.googleapi.LocationSettingsHelper;
+import com.google.android.gms.location.LocationRequest;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-  public static final int REQUEST_CODE = 101;
+  public static final int REQUEST_PERMISSION_CODE = 101;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -45,40 +49,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     Button btnContacts = (Button) findViewById(R.id.btn_contacts);
     btnContacts.setOnClickListener(this);
+
+    Button btnLocationSettings = (Button) findViewById(R.id.btn_location_settings);
+    btnLocationSettings.setOnClickListener(this);
   }
 
   private void checkLocationPermission() {
     Permission permission = new Permission.PermissionBuilder(Permission.REQUEST_LOCATION)
         .usingActivity(this).withRationale("This app requires your location for no reason!")
         .build();
-    permission.requestPermission(REQUEST_CODE);
+    permission.requestPermission(REQUEST_PERMISSION_CODE);
   }
 
   private void checkCameraPermission() {
     Permission permission = new Permission.PermissionBuilder(Permission.REQUEST_CAMERA)
         .usingActivity(this).withRationale("This app uses your camera for no reason!").build();
-    permission.requestPermission(REQUEST_CODE);
-  }
-
-  @Override
-  protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-    if (requestCode == REQUEST_CODE) {
-      switch (resultCode) {
-        case PermissionActivity.PERMISSION_GRANTED:
-          Toast.makeText(this, "Granted", Toast.LENGTH_SHORT).show();
-          break;
-        case PermissionActivity.PERMISSION_DENIED:
-          Toast.makeText(this, "Denied", Toast.LENGTH_SHORT).show();
-          break;
-        case PermissionActivity.PERMISSION_PERMANENTLY_DENIED:
-          Toast.makeText(this, "Permanently denied", Toast.LENGTH_SHORT).show();
-          PermissionUtil.openAppSettings(this);
-          break;
-        default:
-      }
-    } else {
-      super.onActivityResult(requestCode, resultCode, data);
-    }
+    permission.requestPermission(REQUEST_PERMISSION_CODE);
   }
 
   @Override
@@ -111,6 +97,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
       case R.id.btn_storage:
         checkStoragePermission();
         break;
+      case R.id.btn_location_settings:
+        checkLocationSettings();
       default:
     }
   }
@@ -118,43 +106,87 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
   private void checkStoragePermission() {
     Permission permission = new Permission.PermissionBuilder(Permission.REQUEST_STORAGE)
         .usingActivity(this).withRationale("This app uses your storage for no reason!").build();
-    permission.requestPermission(REQUEST_CODE);
+    permission.requestPermission(REQUEST_PERMISSION_CODE);
   }
 
   private void checkSmsPermission() {
     Permission permission = new Permission.PermissionBuilder(Permission.REQUEST_SMS)
         .usingActivity(this).withRationale("This app uses your sms for no reason!").build();
-    permission.requestPermission(REQUEST_CODE);
+    permission.requestPermission(REQUEST_PERMISSION_CODE);
   }
 
   private void checkSensorPermission() {
     Permission permission = new Permission.PermissionBuilder(Permission.REQUEST_SENSORS)
         .usingActivity(this).withRationale("This app uses your sensors for no reason!").build();
-    permission.requestPermission(REQUEST_CODE);
+    permission.requestPermission(REQUEST_PERMISSION_CODE);
   }
 
   private void checkPhonePermission() {
     Permission permission = new Permission.PermissionBuilder(Permission.REQUEST_PHONE)
         .usingActivity(this).withRationale("This app uses your call facility for no reason!")
         .build();
-    permission.requestPermission(REQUEST_CODE);
+    permission.requestPermission(REQUEST_PERMISSION_CODE);
   }
 
   private void checkMicPermission() {
     Permission permission = new Permission.PermissionBuilder(Permission.REQUEST_MICROPHONE)
         .usingActivity(this).withRationale("This app uses your mic for no reason!").build();
-    permission.requestPermission(REQUEST_CODE);
+    permission.requestPermission(REQUEST_PERMISSION_CODE);
   }
 
   private void checkCalendarPermission() {
     Permission permission = new Permission.PermissionBuilder(Permission.REQUEST_CALENDAR)
         .usingActivity(this).withRationale("This app uses your calendar for no reason!").build();
-    permission.requestPermission(REQUEST_CODE);
+    permission.requestPermission(REQUEST_PERMISSION_CODE);
   }
 
   private void checkContactsPermission() {
     Permission permission = new Permission.PermissionBuilder(Permission.REQUEST_CONTACTS)
         .usingActivity(this).withRationale("This app uses your contacts for no reason!").build();
-    permission.requestPermission(REQUEST_CODE);
+    permission.requestPermission(REQUEST_PERMISSION_CODE);
+  }
+
+  private void checkLocationSettings() {
+    LocationRequest locationRequest = new LocationRequest()
+        .setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
+    LocationSettingsHelper settingsApi = new LocationSettingsHelper(MainActivity.this,
+        locationRequest, true, false);
+    settingsApi.checkLocationRequest();
+  }
+
+  @Override
+  protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    if (requestCode == REQUEST_PERMISSION_CODE) {
+      switch (resultCode) {
+        case PermissionActivity.PERMISSION_GRANTED:
+          Toast.makeText(this, "Granted", Toast.LENGTH_SHORT).show();
+          break;
+        case PermissionActivity.PERMISSION_DENIED:
+          Toast.makeText(this, "Denied", Toast.LENGTH_SHORT).show();
+          break;
+        case PermissionActivity.PERMISSION_PERMANENTLY_DENIED:
+          Toast.makeText(this, "Permanently denied", Toast.LENGTH_SHORT).show();
+          PermissionUtil.openAppSettings(this);
+          break;
+        default:
+      }
+    } else if (requestCode == LocationSettingsActivity.REQUEST_LOCATION_SETTINGS) {
+      switch (resultCode) {
+        case Activity.RESULT_OK:
+          Toast.makeText(this, "Allowed Location Settings", Toast.LENGTH_SHORT).show();
+          break;
+        case Activity.RESULT_CANCELED:
+          Toast.makeText(this, "Location Settings canceled", Toast.LENGTH_SHORT).show();
+          break;
+        default:
+      }
+    } else {
+      super.onActivityResult(requestCode, resultCode, data);
+    }
+  }
+
+  @Override
+  protected void onDestroy() {
+    super.onDestroy();
   }
 }

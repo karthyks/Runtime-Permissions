@@ -81,5 +81,9 @@
             android:name="com.github.karthyks.runtimepermissions.PermissionActivity"
             android:theme="@style/Theme.Transparent.NoTitle">
         </activity>
+        <activity
+            android:name="com.github.karthyks.runtimepermissions.googleapi.LocationSettingsActivity"
+            android:theme="@style/Theme.Transparent.NoTitle">
+        </activity>
     </application>
 </manifest>

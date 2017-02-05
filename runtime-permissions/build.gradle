@@ -52,6 +52,8 @@ configurations {
 dependencies {
     provided 'com.android.support:appcompat-v7:25.1.0'
     provided 'com.android.support:design:25.1.0'
+    provided 'com.google.android.gms:play-services-base:10.0.1'
+    provided 'com.google.android.gms:play-services-location:10.0.1'
 }
 
 //apply from: 'https://raw.githubusercontent.com/nisrulz/JCenter/master/installv1.gradle'

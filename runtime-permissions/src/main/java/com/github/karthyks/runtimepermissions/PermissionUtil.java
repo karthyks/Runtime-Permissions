@@ -6,7 +6,7 @@ import android.net.Uri;
 import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 
-public abstract class PermissionUtil {
+public class PermissionUtil {
   public static boolean verifyPermissions(int[] grantResults) {
     if (grantResults.length < 1) {
       return false;
