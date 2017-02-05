@@ -10,14 +10,17 @@ import android.widget.Toast;
 
 import com.github.karthyks.permissionchecker.R;
 import com.github.karthyks.runtimepermissions.Permission;
-import com.github.karthyks.runtimepermissions.PermissionActivity;
 import com.github.karthyks.runtimepermissions.PermissionUtil;
 import com.github.karthyks.runtimepermissions.googleapi.LocationSettingsActivity;
 import com.github.karthyks.runtimepermissions.googleapi.LocationSettingsHelper;
 import com.google.android.gms.location.LocationRequest;
 
+import static com.github.karthyks.runtimepermissions.PermissionActivity.PERMISSION_DENIED;
+import static com.github.karthyks.runtimepermissions.PermissionActivity.PERMISSION_GRANTED;
+import static com.github.karthyks.runtimepermissions.PermissionActivity.PERMISSION_PERMANENTLY_DENIED;
+import static com.github.karthyks.runtimepermissions.PermissionActivity.REQUEST_PERMISSION_CODE;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-  public static final int REQUEST_PERMISSION_CODE = 101;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -158,13 +161,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
   protected void onActivityResult(int requestCode, int resultCode, Intent data) {
     if (requestCode == REQUEST_PERMISSION_CODE) {
       switch (resultCode) {
-        case PermissionActivity.PERMISSION_GRANTED:
+        case PERMISSION_GRANTED:
           Toast.makeText(this, "Granted", Toast.LENGTH_SHORT).show();
           break;
-        case PermissionActivity.PERMISSION_DENIED:
+        case PERMISSION_DENIED:
           Toast.makeText(this, "Denied", Toast.LENGTH_SHORT).show();
           break;
-        case PermissionActivity.PERMISSION_PERMANENTLY_DENIED:
+        case PERMISSION_PERMANENTLY_DENIED:
           Toast.makeText(this, "Permanently denied", Toast.LENGTH_SHORT).show();
           PermissionUtil.openAppSettings(this);
           break;

@@ -28,8 +28,8 @@ import static com.github.karthyks.runtimepermissions.PermissionActivity.TAG;
 public class LocationSettingsActivity extends AppCompatActivity
     implements GoogleClient.GoogleClientCallback {
 
-  public static final int REQUEST_LOCATION_SETTINGS = 701;
-  private static final int REQUEST_CHECK_SETTINGS = 700;
+  public static final int REQUEST_LOCATION_SETTINGS = 0x0200;
+  private static final int REQUEST_CHECK_SETTINGS = 0x0201;
   public static final String EXTRAS_LOCATION_REQUEST = "extras_location_settings_api";
   public static final String EXTRAS_ALWAYS_SHOW_REQUEST = "extras_always_show_request";
   public static final String EXTRAS_LOCATION_NEEDBLE = "extras_location_needble";

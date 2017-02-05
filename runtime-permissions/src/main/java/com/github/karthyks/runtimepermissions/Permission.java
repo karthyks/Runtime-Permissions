@@ -28,15 +28,15 @@ import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 
 public class Permission {
 
-  public static final int REQUEST_CAMERA = 200;
-  public static final int REQUEST_CONTACTS = 201;
-  public static final int REQUEST_LOCATION = 202;
-  public static final int REQUEST_CALENDAR = 203;
-  public static final int REQUEST_MICROPHONE = 204;
-  public static final int REQUEST_SMS = 205;
-  public static final int REQUEST_PHONE = 206;
-  public static final int REQUEST_SENSORS = 207;
-  public static final int REQUEST_STORAGE = 208;
+  public static final int REQUEST_CAMERA = 0x01AA;
+  public static final int REQUEST_CONTACTS = 0x01AB;
+  public static final int REQUEST_LOCATION = 0x01AC;
+  public static final int REQUEST_CALENDAR = 0x01AD;
+  public static final int REQUEST_MICROPHONE = 0x01AE;
+  public static final int REQUEST_SMS = 0x01AF;
+  public static final int REQUEST_PHONE = 0x01BA;
+  public static final int REQUEST_SENSORS = 0x01BB;
+  public static final int REQUEST_STORAGE = 0x01BC;
 
   private static String[] PERMISSIONS_CONTACT = {READ_CONTACTS, WRITE_CONTACTS, GET_ACCOUNTS};
   private static String[] PERMISSIONS_LOCATION = {ACCESS_COARSE_LOCATION, ACCESS_FINE_LOCATION};

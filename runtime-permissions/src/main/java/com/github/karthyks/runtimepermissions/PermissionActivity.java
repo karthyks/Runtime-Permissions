@@ -20,6 +20,7 @@ public class PermissionActivity extends AppCompatActivity {
   public static final String EXTRAS_PERMISSION_CODE = "extras_request_code";
   public static final String EXTRAS_PERMISSIONS = "extras_permissions";
   public static final String EXTRAS_RATIONALE = "extras_rationale";
+  public static final int REQUEST_PERMISSION_CODE = 0x1000;
   public static final int PERMISSION_GRANTED = 101;
   public static final int PERMISSION_DENIED = 102;
   public static final int PERMISSION_PERMANENTLY_DENIED = 103;
