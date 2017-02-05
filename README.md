@@ -6,6 +6,15 @@
 
 # Usage 
 
+Add the following lines in the application's gradle file.
+```
+    compile 'com.android.support:appcompat-v7:25.1.1'
+    compile 'com.android.support:design:25.1.1'
+    compile 'com.google.android.gms:play-services-base:10.0.1'
+    compile 'com.google.android.gms:play-services-location:10.0.1'
+    compile 'com.github.karthyks:runtime-permissions:1.7'
+```
+
 To ask the permission from the user, use the following code. 
 
 ```java
