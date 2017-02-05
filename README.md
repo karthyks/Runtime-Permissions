@@ -1,5 +1,5 @@
 [![Wercker](https://api.travis-ci.org/karthyks/Runtime-Permissions.svg?branch=master)](https://travis-ci.org/karthyks/Runtime-Permissions) 
-[![Wercker](https://img.shields.io/badge/jcenter-v1.6-green.svg)](https://bintray.com/karthik-logs/karthyks/Runtime-Permissions/1.6)
+[![Wercker](https://img.shields.io/badge/jcenter-v1.7-green.svg)](https://bintray.com/karthik-logs/karthyks/Runtime-Permissions/1.7)
 [![Wercker](https://img.shields.io/badge/Android--Arsenal-Runtime--Permissions-brightgreen.svg)](https://android-arsenal.com/details/1/4522)
 
 # Runtime-Permissions
@@ -12,7 +12,7 @@ To ask the permission from the user, use the following code.
 Permission permission = new Permission.PermissionBuilder(Permission.REQUEST_LOCATION)
         .usingActivity(AppCompatActivity).withRationale("Some rationale message!")
         .build();
-permission.requestPermission(REQUEST_CODE);
+permission.requestPermission(PermissionActivity.REQUEST_PERMISSION_CODE);
 ```
 
 or
@@ -21,7 +21,7 @@ or
 Permission permission = new Permission.PermissionBuilder(Permission.REQUEST_LOCATION)
         .usingFragment(Fragment).withRationale("Some rationale message!")
         .build();
-permission.requestPermission(REQUEST_CODE);
+permission.requestPermission(PermissionActivity.REQUEST_PERMISSION_CODE);
 ```
 
 The user's response to the permission request will be reflected onActivityResult, as shown below.
@@ -47,6 +47,37 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
     }
 }
 ```
+
+#Simple Location Settings API implementation:
+  To check the user's location priority which uses SettingsAPI is simplified by the following method.
+  ```
+  LocationRequest locationRequest = new LocationRequest()
+        .setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
+    LocationSettingsHelper settingsApi = new LocationSettingsHelper(MainActivity.this,
+        locationRequest, true, false);
+    settingsApi.checkLocationRequest();
+  ```
+  
+ And capture the result on onActivityResult.
+ 
+ ```
+ @Override
+  protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+  if (requestCode == LocationSettingsActivity.REQUEST_LOCATION_SETTINGS) {
+      switch (resultCode) {
+        case Activity.RESULT_OK:
+          Toast.makeText(this, "Allowed Location Settings", Toast.LENGTH_SHORT).show();
+          break;
+        case Activity.RESULT_CANCELED:
+          Toast.makeText(this, "Location Settings canceled", Toast.LENGTH_SHORT).show();
+          break;
+        default:
+      }
+    } else {
+      super.onActivityResult(requestCode, resultCode, data);
+    }
+  }
+ ```
 #Note
 If it throws "Permission Denied" even after allowing it, check whether all the permission is added in the manifest for the permission group.
 For example, for location permission add both COARSE and FINE_LOCATION permission in the manifest.
