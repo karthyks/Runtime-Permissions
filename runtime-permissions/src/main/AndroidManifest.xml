@@ -8,6 +8,11 @@
             android:theme="@style/Theme.Transparent.NoTitle">
         </activity>
 
+        <activity android:name=".googleapi.LocationSettingsActivity"
+                  android:theme="@style/Theme.Transparent.NoTitle">
+
+        </activity>
+
     </application>
 
 </manifest>
