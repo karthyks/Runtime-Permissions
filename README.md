@@ -12,7 +12,7 @@ Add the following lines in the application's gradle file.
     compile 'com.android.support:design:25.1.1'
     compile 'com.google.android.gms:play-services-base:10.0.1'
     compile 'com.google.android.gms:play-services-location:10.0.1'
-    compile 'com.github.karthyks:runtime-permissions:1.7'
+    compile 'com.github.karthyks:runtime-permissions:1.8'
 ```
 
 To ask the permission from the user, use the following code. 
@@ -37,7 +37,7 @@ The user's response to the permission request will be reflected onActivityResult
 
 ```java
 protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-    if (requestCode == REQUEST_CODE) {
+    if (requestCode == PermissionActivity.REQUEST_PERMISSION_CODE) {
       switch (resultCode) {
         case PermissionActivity.PERMISSION_GRANTED:
           Toast.makeText(this, "Granted", Toast.LENGTH_SHORT).show();

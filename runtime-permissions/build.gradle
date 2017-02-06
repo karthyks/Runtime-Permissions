@@ -13,7 +13,7 @@ apply plugin: 'com.android.library'
 //    gitUrl = 'https://github.com/karthyks/Runtime-Permissions/'
 //    githubRepository = 'https://github.com/karthyks/Runtime-Permissions.git'
 //
-//    libraryVersion = '1.7'
+//    libraryVersion = '1.8'
 //
 //    developerId = 'karthik-logs'
 //    developerName = 'karthik periasami'
